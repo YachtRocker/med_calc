@@ -8,3 +8,6 @@ def test_airwayresistance():
 
 def test_pfratio():
     assert myfunctions.pfratio(67, 98)
+
+def test_universaldrugcalc():
+    assert myfunctions.univeralsdrugcalc(750, 250, 'tablets')

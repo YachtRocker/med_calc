@@ -1,12 +1,5 @@
 # Respiratory Therapy
-def minuteventilation (rate, tidal_volume) -> float :
-    """
-    Calculate the minute ventilation   
-    rate x Tidal Volume 
-    """    
-    return rate * (tidal_volume / 1000)
-
-def airwayresistance (pip, plateau, flow) -> int:
+def airwayResistance(pip, plateau, flow) -> int:
     """
     Calculate Airwary Resistance
     Raw = (PIP - Plateau Pressure) / Flow
@@ -14,15 +7,33 @@ def airwayresistance (pip, plateau, flow) -> int:
 
     return (pip - plateau) / flow
 
-def pfratio (PaO2, FiO2) -> int:
+
+def minuteVentilation(rate, tidal_volume) -> float:
+    """
+    Calculate the minute ventilation
+    rate x Tidal Volume
+    """
+    return rate * (tidal_volume / 1000)
+
+
+def pfRatio(paO2, fiO2) -> int:
     """
     P/F Ratio
     PaO2 / FiO2
     """
-    return PaO2 / FiO2
+    return paO2 / fiO2
+
+
+def rapidShallowBreathingIndex(tidal_volume, respiratory_rate) -> int:
+    """
+    Rapid Shallow Breathing Index
+    respiratory rate / tidal volums (400 is 0.400)
+    """
+    return respiratory_rate / (tidal_volume / 1000)
+
 
 # Nursing Calculations
-def univeralsdrugcalc (desired, onhand, output):
+def universalDrugCalc(desired, onhand, output):
     dose = []
     """
     Universal Formula Drug Calcation 
@@ -35,10 +46,10 @@ def univeralsdrugcalc (desired, onhand, output):
     output is the Unit output
 
     return a list with dose and unit
-    """    
-    dose.append((desired / onhand) * 1)    
+    """
+    dose.append((desired / onhand) * 1)
     dose.append(output)
 
     return dose
 
-# Doctor Calcuations
+# Doctor Calculations

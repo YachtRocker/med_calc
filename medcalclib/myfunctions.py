@@ -1,5 +1,32 @@
 # Respiratory Therapy
-def airwayResistance(pip, plateau, flow) -> int:
+
+def durationOfFlow(tanksize: str, pressure: int, literflow: float) -> float:
+    """
+    Calculate oxygen tank duration of flow
+    Duration = (Gauge Pressure x Tank Factor) / Liter Flow
+
+    D cylinder: 0.16
+    E cylinder: 0.28
+    G cylinder: 2.41
+    H cylinder: 3.14
+    """
+
+    tankfactor = 0.0
+    tanksize = tanksize.upper()
+
+    if tanksize == 'D':
+        tankfactor = 0.16
+    if tanksize == 'E':
+        tankfactor = 0.28
+    if tanksize == 'G':
+        tankfactor = 2.41
+    if tanksize == 'H':
+        tankfactor = 3.14
+
+    return (pressure * tankfactor) / literflow
+
+
+def airwayResistance(pip: int, plateau: int , flow: int) -> int:
     """
     Calculate Airwary Resistance
     Raw = (PIP - Plateau Pressure) / Flow
@@ -53,3 +80,12 @@ def universalDrugCalc(desired, onhand, output):
     return dose
 
 # Doctor Calculations
+
+
+# Universal Medical Calculations
+def farenheitToCelcius(farenheit: float) -> int:
+    """
+    Convert Farenheit To Celsius
+    °C = (°F - 32) / 1.8
+    """
+    return ((farenheit - 32) / 1.8)

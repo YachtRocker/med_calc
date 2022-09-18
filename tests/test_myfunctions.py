@@ -19,3 +19,11 @@ def test_universalDrugCalc():
 
 def test_rapidShallowBreathingIndex():
     assert myfunctions.rapidShallowBreathingIndex(12, 400)
+
+
+def test_durationOfFlow():
+    assert myfunctions.durationOfFlow('d', 1500, 4.0)
+    
+
+def test_farenheitToCelcius():
+    assert myfunctions.farenheitToCelcius(98)

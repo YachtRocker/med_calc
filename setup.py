@@ -9,6 +9,6 @@ setup(
     license='MIT',
     install_requires=[],
     setup_requires=['pytest-runner'],
-    tests_require=['pytest==7.0.0'],
+    tests_require=['pytest'],
     test_suite='tests',
 )

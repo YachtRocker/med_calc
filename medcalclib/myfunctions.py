@@ -76,6 +76,24 @@ def dynamicCompliance(tidal_volume: int, peak_insp_pressure: int, peep: int) -> 
     return (tidal_volume / (peak_insp_pressure - peep))
 
 
+def alveolarGasEquation(FiO2: float, pb: int, PaCO2: float) -> float:
+    """
+    Alveolar Gas Equation: PAO2 = FiO2(PB - PH2O) - PaCO2/RQ
+    
+    FiO2 example: 21% enter as 0.21
+
+    The alveolar gas equation is a formula used to approximate the partial pressure of oxygen in the alveolus (PAO2)
+    PB is the barometric pressure, PH2O is the water vapor pressure (usually 47 mmHg), FiO2 is the fractional concentration of inspired oxygen, 
+    and R is the gas exchange ratio. (The rate of CO2 production to O2 use is usually around 0.8 at rest.)
+    """
+    ph20 = 47
+    rq = 0.8
+
+    ans = (FiO2*(pb - ph20)) - (PaCO2 / rq)
+
+    return (round(ans, 1))
+
+
 # Nursing Calculations
 def universalDrugCalc(desired: float, onhand: float, quantity: int):
     """

@@ -35,3 +35,7 @@ def test_staticCompliance():
 
 def test_dynamicCompliance():
     assert myfunctions.dynamicCompliance(500, 25, 5)
+    
+
+def test_aveolarAirEquation():
+    assert myfunctions.alveolarGasEquation(0.21, 760, 40)

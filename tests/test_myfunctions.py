@@ -14,7 +14,7 @@ def test_pfRatio():
 
 
 def test_universalDrugCalc():
-    assert myfunctions.universalDrugCalc(750, 250, 'tablets')
+    assert myfunctions.universalDrugCalc(750, 250, 1)
 
 
 def test_rapidShallowBreathingIndex():
@@ -23,7 +23,15 @@ def test_rapidShallowBreathingIndex():
 
 def test_durationOfFlow():
     assert myfunctions.durationOfFlow('d', 1500, 4.0)
-    
+
 
 def test_farenheitToCelcius():
     assert myfunctions.farenheitToCelcius(98)
+
+
+def test_staticCompliance():
+    assert myfunctions.staticCompliance(500, 25, 5)
+
+
+def test_dynamicCompliance():
+    assert myfunctions.dynamicCompliance(500, 25, 5)

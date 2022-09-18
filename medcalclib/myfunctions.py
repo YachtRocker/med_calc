@@ -5,6 +5,7 @@ def durationOfFlow(tanksize: str, pressure: int, literflow: float) -> float:
     Calculate oxygen tank duration of flow
     Duration = (Gauge Pressure x Tank Factor) / Liter Flow
 
+    Tank Sizes
     D cylinder: 0.16
     E cylinder: 0.28
     G cylinder: 2.41
@@ -59,11 +60,26 @@ def rapidShallowBreathingIndex(tidal_volume, respiratory_rate) -> int:
     return respiratory_rate / (tidal_volume / 1000)
 
 
-# Nursing Calculations
-def universalDrugCalc(desired, onhand, output):
-    dose = []
+def staticCompliance(tidal_volume: int, plateau_pressure: int, peep: int) -> int:
     """
-    Universal Formula Drug Calcation 
+    Static Lung Compliance fomula: tidal_volume / (plateau_pressure - peep)
+        example: 500 / (25 - 5) = 25
+    """
+    return (tidal_volume / (plateau_pressure - peep))
+
+
+def dynamicCompliance(tidal_volume: int, peak_insp_pressure: int, peep: int) -> int:
+    """
+    Dynamic Lung Compliance formula: tidal_volume / (peak_insp_pressure - peep)
+        example: 500 / (25 - 5) = 25
+    """
+    return (tidal_volume / (peak_insp_pressure - peep))
+
+
+# Nursing Calculations
+def universalDrugCalc(desired: float, onhand: float, quantity: int):
+    """
+    Universal Formula Drug Calculation 
     In the universal formula (or “desired over have method”), the desired amount (D) is the dose  prescribed and the amount on hand (H)
      or the amount you “have” is the available dose or concentration. The quantity (Q) is the form and amount in which the drug is supplied 
      (i.e. tablet, capsule, liquid). To calculate the dose, take the desired amount and divide it by the amount on hand, then multiply it by 
@@ -72,12 +88,14 @@ def universalDrugCalc(desired, onhand, output):
     (desired / onhand) * quantity = Dose    
     output is the Unit output
 
-    return a list with dose and unit
-    """
-    dose.append((desired / onhand) * 1)
-    dose.append(output)
+    example: 1 Tablet = 250mg
+        Desired                 750 mg
+        ------- * Quantity =    ------ = x 1 Tablet = 3 Tablets     Returns 3
+        On Hand                 250 mg
 
-    return dose
+    return total to use
+    """
+    return ((desired / onhand) * quantity)
 
 # Doctor Calculations
 

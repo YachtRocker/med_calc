@@ -36,12 +36,14 @@ def airwayResistance(pip: int, plateau: int , flow: int) -> int:
     return (pip - plateau) / flow
 
 
-def minuteVentilation(rate, tidal_volume) -> float:
+def minuteVentilation(rate: int, tidal_volume: float) -> float:
     """
     Calculate the minute ventilation
-    rate x Tidal Volume
+    rate * Tidal Volume
+
+    Enter Tidal Volume: 500 as 0.500
     """
-    return rate * (tidal_volume / 1000)
+    return rate * tidal_volume
 
 
 def pfRatio(paO2, fiO2) -> int:
